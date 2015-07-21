@@ -1,17 +1,22 @@
-angular.module('slot', ['handle'])
-.directive('slot', [function() {
+angular.module('schedulerSlot', ['schedulerHandle'])
+.directive('schedulerSlot', [function() {
     return {
         scope: {
             min: '=',
             max: '=',
             model: '=',
             slots: '=',
-            tick: '='
+            tick: '=',
+            gridTick: '='
         },
         restrict: 'E',
         templateUrl: 'templates/slot.html',
         link: function(scope, element) {
 
+            scope.tickcount = (scope.max - scope.min) / scope.gridTick;
+            scope.ticksize = 100 / scope.tickcount;
+            var skipped = scope.min / scope.gridTick;
+            scope.offset = scope.ticksize * skipped;
 
             scope.$watch('model', function(){
                 setPosition();
@@ -45,7 +50,7 @@ angular.module('slot', ['handle'])
                 var offset = valToPercent(scope.model.start);
                 var width = valToPercent(scope.model.stop - scope.model.start);
                 element.css({
-                    left: offset + '%',
+                    left: offset - scope.offset + '%',
                     width: width + '%'
                 });
             };

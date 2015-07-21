@@ -1,8 +1,7 @@
-angular.module('scheduler', ['multislider', 'grid'])
-
+angular.module('scheduler', ['schedulerMultislider', 'schedulerGrid'])
 .filter('intToTime', [function(){
 
-    return function(input){
+    return function(input, isMilitary){
 
         function pad(n, width) {
             n = n + '';
@@ -11,16 +10,15 @@ angular.module('scheduler', ['multislider', 'grid'])
 
         var hours = Math.floor(input / 60);
         var minutes = input % 60;
-        return pad(hours, 2)+':'+pad(minutes, 2);
+        return isMilitary ? pad(hours, 2)+':'+pad(minutes, 2) : (input >= 780 ? hours - 12 : hours) + ':' + pad(minutes, 2) + (input >= 720 ? ' PM' : ' AM');
     };
 }])
-
 .directive('scheduler', [function(){
     return {
         templateUrl: 'templates/scheduler.html',
         restrict: 'E',
         scope: {
-            slots: '=',
+            slots: '='
         },
         link: function(scope){
             scope.labels = [

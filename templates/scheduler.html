@@ -1,17 +1,17 @@
 <div class="labels">
-    <div class="row"></div>
-    <div class="row" ng-repeat="label in labels">{{label}}</div>
+    <div class="srow"></div>
+    <div class="srow" ng-repeat="label in labels">{{label}}</div>
 </div>
 
 <div class="data-area">
     
-    <div class="row timestamps">
-        <grid min="0" max="1440" tick="120" class="grid-container"></grid>
+    <div class="srow timestamps">
+        <scheduler-grid min="420" max="1080" tick="60" class="grid-container"></scheduler-grid>
     </div>    
 
-    <div class="row" ng-repeat="label in labels">
-        <grid min="0" max="1440" tick="120" class="grid-container striped no-labels"></grid>
-        <multi-slider default-value="180" min="0" max="1440" tick="15" slots="slots" day="$index"></multi-slider>
+    <div class="srow" ng-repeat="label in labels">
+        <scheduler-grid min="420" max="1080" tick="60" class="grid-container striped no-labels"></scheduler-grid>
+        <scheduler-multi-slider default-value="60" grid-tick="60" min="420" max="1080" tick="15" slots="slots" day="$index"></scheduler-multi-slider>
     </div>
 
 </div>

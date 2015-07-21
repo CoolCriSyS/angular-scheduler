@@ -1,1 +1,3 @@
-<div class="grid-item" ng-repeat="i in range(tickcount) track by $index" style="left: {{$index*ticksize}}%; width: {{ticksize}}%"><span class="content">{{$index * tick | intToTime}}</span></div>
+<div ng-if="$index*tick >= min && $index*tick <= max" class="grid-item" ng-repeat="i in range(tickcount+skipped) track by $index" style="left: {{($index*ticksize)-offset}}%; width: {{ticksize}}%;">
+    <span class="content">{{$index * tick | intToTime}}</span>
+</div>

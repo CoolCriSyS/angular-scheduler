@@ -1,5 +1,4 @@
-angular.module('multislider', ['slot'])
-
+angular.module('schedulerMultislider', ['schedulerSlot'])
 .filter('byDay', [function(){
     return function(input, day){
         var ret = [];
@@ -11,8 +10,7 @@ angular.module('multislider', ['slot'])
         return ret;
     };
 }])
-
-.directive('multiSlider', [function() {
+.directive('schedulerMultiSlider', [function() {
     return {
         scope: {
             slots: '=',
@@ -20,11 +18,12 @@ angular.module('multislider', ['slot'])
             min: '=',
             tick: '=',
             defaultValue: '=',
-            day: '='
+            day: '=',
+            gridTick: '='
         },
         restrict: 'E',
         templateUrl: 'templates/multi-slider.html',
-        link: function(scope, element){
+        link: function (scope, element) {
 
             // used for calculating relative click-events
             var elOffX = element[0].getBoundingClientRect().left;
@@ -43,10 +42,12 @@ angular.module('multislider', ['slot'])
                 return scope.tick * Math.round(n / scope.tick);
             };
 
-            var addSlot = function(start, stop){
-                start = start >= scope.min ? start : scope.min;
-                stop = stop <= scope.max ? stop : scope.max;
-                scope.slots.push({start: start, stop: stop, day: scope.day});
+            var addSlot = function (start, stop) {
+                start = start + scope.min;
+                stop = stop + scope.min;
+                var tStart = start >= scope.min ? start : scope.min;
+                var tStop = stop <= scope.max ? stop : scope.max;
+                scope.slots.push({start: tStart, stop: tStop, day: scope.day});
                 scope.$apply();
             };
 

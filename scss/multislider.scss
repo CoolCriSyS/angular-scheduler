@@ -1,4 +1,4 @@
-multi-slider {
+scheduler-multi-slider {
 
     position: relative;
     display: block;
@@ -42,7 +42,7 @@ multi-slider {
         }
     }
 
-    slot {
+    scheduler-slot {
 
         -webkit-transition: background 0.1s ease-in;
 

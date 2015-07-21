@@ -1,5 +1,5 @@
-angular.module('handle', [])
-.directive('handle', ['$document', function($document){
+angular.module('schedulerHandle', [])
+.directive('schedulerHandle', ['$document', function($document){
     return {
         scope: {
             ondrag: '=',

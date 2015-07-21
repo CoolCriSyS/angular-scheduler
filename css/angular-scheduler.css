@@ -322,12 +322,12 @@ table {
 td, th {
   padding: 0; }
 
-multi-slider {
+scheduler-multi-slider {
   position: relative;
   display: block;
   height: 35px;
   overflow: hidden; }
-  multi-slider .slot {
+  scheduler-multi-slider .slot {
     position: absolute;
     top: 5px;
     bottom: 5px;
@@ -337,38 +337,38 @@ multi-slider {
     overflow: hidden;
     line-height: 25px;
     color: #fff; }
-  multi-slider .ghost {
+  scheduler-multi-slider .ghost {
     background: #5ab57a;
     opacity: 0.6;
     display: none;
     cursor: pointer; }
-  multi-slider:hover .ghost {
+  scheduler-multi-slider:hover .ghost {
     display: block; }
-  multi-slider.slot-hover .ghost {
+  scheduler-multi-slider.slot-hover .ghost {
     display: none; }
-  multi-slider.dragging .ghost {
+  scheduler-multi-slider.dragging .ghost {
     display: none; }
-  multi-slider slot {
+  scheduler-multi-slider scheduler-slot {
     -webkit-transition: background 0.1s ease-in;
     cursor: all-scroll;
     min-width: 10px !important;
     background: #4eb8d5; }
-    multi-slider slot .handle {
+    scheduler-multi-slider scheduler-slot .handle {
       position: absolute;
       top: 0;
       bottom: 0; }
-      multi-slider slot .handle.left, multi-slider slot .handle.right {
+      scheduler-multi-slider scheduler-slot .handle.left, scheduler-multi-slider scheduler-slot .handle.right {
         width: 10px;
         background: #000;
         cursor: col-resize !important;
         opacity: 0.1; }
-        multi-slider slot .handle.left:hover, multi-slider slot .handle.right:hover {
+        scheduler-multi-slider scheduler-slot .handle.left:hover, scheduler-multi-slider scheduler-slot .handle.right:hover {
           opacity: 0.3; }
-      multi-slider slot .handle.left {
+      scheduler-multi-slider scheduler-slot .handle.left {
         left: 0; }
-      multi-slider slot .handle.right {
+      scheduler-multi-slider scheduler-slot .handle.right {
         right: 0; }
-    multi-slider slot.active {
+    scheduler-multi-slider scheduler-slot.active {
       z-index: 10;
       background: #5ab57a;
       color: #fff; }
@@ -385,16 +385,16 @@ multi-slider {
     width: 15%;
     color: #666;
     border-right: 1px solid #ddd; }
-    .scheduler .labels .row {
+    .scheduler .labels .srow {
       padding: 0 5px;
       border-bottom: 1px solid #ddd; }
   .scheduler .data-area {
     width: 85%; }
-  .scheduler .row {
+  .scheduler .srow {
     position: relative;
     height: 35px;
     line-height: 35px; }
-    .scheduler .row:last-child, .scheduler .row:last-child .grid-container {
+    .scheduler .srow:last-child, .scheduler .srow:last-child .grid-container {
       border-bottom: none; }
   .scheduler .timestamps {
     color: #aaa;
