@@ -4,10 +4,9 @@ Collection of widgets to create (weekly) scheduling view.
 
 ![Screenshot of scheduler](screenshot.png)
 
-Decided to make my own, as there didn't seem to be existing tools or sliders with good support for e.g. multiple slots.
+I forked this because I needed something a little more flexible. There was no support to display a custom time range, e.g. the start of the day beginning at 7AM and ending at 5PM. Otherwise, this is one pretty great tool! Props to the original creator.
 
 Some more or less nice features:
-
 - Slick looks
 - Not dependent on e.g. jQuery or jQueryUI
 - Automatically merge overlapping slots
@@ -35,12 +34,6 @@ $scope.slots = [
     { ... }
 ]
 ```
-
-
-## TODO
-
-- Separate layout CSS from purely visual stuff to make it easier to customize looks
-- Make each component more independent, so they (especially multislider) could also be used separately
 
 
 ## License
